@@ -1,23 +1,37 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+// pages/index.js
 
-export default function Home() {
+import Head from 'next/head';
+
+const Home = () => {
+  const scrollToAbout = () => {
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>Your Church Name</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+      <header className="header">
+        <h1>Your Church Name</h1>
+        <p>Welcome to our community</p>
+        <button onClick={scrollToAbout}>See More</button>
+      </header>
 
-      <Footer />
+      <section id="about" className="about">
+        <h2>About Us</h2>
+        <p>Provide a brief description of your church and its mission. Include confessions of faith.</p>
+      </section>
+
+      {/* Add other sections as needed */}
+
+      <footer className="footer">
+        <p>&copy; 2024 Your Church Name. All rights reserved.</p>
+      </footer>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
